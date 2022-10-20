@@ -1,58 +1,42 @@
-class Cliente {
-  nombreCliente;
-  dniCliente;
-  rutCliente;
-}
-
-class CuentaCorriente {
-  nroCuenta;
-  saldoCuenta;
-  agencia;
-
-  constructor() {
-    this.nroCuenta = "";
-    this.saltoCuenta = 0;
-    this.agencia = "";
-  }
-
-  depositosEnCuenta(valor) {
-    this.saldoCuenta += valor;
-  }
-  retiroDeCuenta(valor) {
-    this.saldoCuenta -= valor;
-  }
-}
+import { CuentaCorriente } from "./CuentaCorriente.js";
+import { Cliente } from "./Clente.js";
 
 const cliente1 = new Cliente();
-cliente1.nombreCliente = "Jose";
-cliente1.dniCliente = "12365478";
-cliente1.rutCliente = "12365478";
-
-const cCorriente1 = new CuentaCorriente();
-cCorriente1.nroCuenta = "789456123";
-cCorriente1.saldoCuenta = 1000;
-cCorriente1.agencia = 1001;
+const cuentaDeCliente1 = new CuentaCorriente();
 
 const cliente2 = new Cliente();
-cliente2.nombreCliente = "leonardo";
-cliente2.dniCliente = "45678912";
-cliente2.rutCliente = "45678912";
+const cuentaDeCliente2 = new CuentaCorriente();
 
-const cCorriente2 = new CuentaCorriente();
-cCorriente2.nroCuenta = "987456321";
-cCorriente2.saldoCuenta = 500;
-cCorriente2.agencia = 1002;
+cargarDatos();
+function cargarDatos() {
+  cliente1.nombreCliente = "Shimbo";
+  cliente1.dniCliente = "29903752";
+  cliente1.rutCliente = "20299037526";
 
-console.log(cCorriente3.saldoCuenta);
-cCorriente3.depositosEnCuenta(500);
-console.log(cCorriente3.saldoCuenta);
-cCorriente3.retiroDeCuenta(250);
-console.log(cCorriente3.saldoCuenta);
+  cuentaDeCliente1.nroCuenta = "0001";
+  cuentaDeCliente1.agencia = "1752";
+  cuentaDeCliente1.cliente = cliente1;
 
-/*console.log(cliente1);
-console.log(cliente2);
-console.log(cliente3);
-console.log(cCorriente1);
-console.log(cCorriente2);
-console.log(cCorriente3);
-*/
+  cliente2.nombreCliente = "Pety";
+  cliente2.dniCliente = "30563126";
+  cliente2.rutCliente = "23305631264";
+
+  cuentaDeCliente2.nroCuenta = "0002";
+  cuentaDeCliente2.agencia = "1751";
+  cuentaDeCliente2.cliente = cliente2;
+}
+// console.log(cuentaDeCliente1);
+// console.log(cuentaDeCliente2);
+
+// let saldo;
+
+cuentaDeCliente1.depositosEnCuenta(150);
+console.log("Shimbo : " + cuentaDeCliente1.verSaldo());
+console.log("Pety : " + cuentaDeCliente2.verSaldo());
+
+// console.log(cuentaDeCliente2);
+
+cuentaDeCliente1.transferirParaCuenta(100, cuentaDeCliente2);
+// console.log("Shimbo : " + cuentaDeCliente1.verSaldo());
+// console.log("Pety : " + cuentaDeCliente2.verSaldo());
+// console.log("El saldo actual es: $" + saldo);

@@ -1,29 +1,17 @@
 import { CuentaCorriente } from "./CuentaCorriente.js";
 import { Cliente } from "./Clente.js";
 
-const cliente1 = new Cliente();
-const cuentaDeCliente1 = new CuentaCorriente();
-cliente1.nombreCliente = "Shimbo";
-cliente1.dniCliente = "29903752";
-cliente1.rutCliente = "20299037526";
+const cliente1 = new Cliente("Shimbo", "29903752", "20299037526");
+const cuentaDeCliente1 = new CuentaCorriente(cliente1, "0001", "1752");
 
-cuentaDeCliente1.nroCuenta = "0001";
-cuentaDeCliente1.agencia = "1752";
-cuentaDeCliente1.cliente = cliente1;
+const cliente2 = new Cliente("Pety", "30563126", "23305631264");
+const cuentaDeCliente2 = new CuentaCorriente(cliente2, "0002", "1751");
 
-const cliente2 = new Cliente();
-const cuentaDeCliente2 = new CuentaCorriente();
+console.log(CuentaCorriente.cantidad);
 
-cliente2.nombreCliente = "Pety";
-cliente2.dniCliente = "30563126";
-cliente2.rutCliente = "23305631264";
+const cuentaDeCliente = new CuentaCorriente(cliente2, "0002", "1751");
+const cuentaDeCliente3 = new CuentaCorriente(cliente2, "0002", "1751");
+const cuentaDeCliente4 = new CuentaCorriente(cliente2, "0002", "1751");
+const cuentaDeCliente5 = new CuentaCorriente(cliente2, "0002", "1751");
 
-cuentaDeCliente2.nroCuenta = "0002";
-cuentaDeCliente2.agencia = "1751";
-cuentaDeCliente2.Cliente = cliente2;
-
-console.log(cuentaDeCliente2.Cliente);
-
-cuentaDeCliente2.Cliente = 0;
-
-console.log(cuentaDeCliente2.Cliente);
+console.log(CuentaCorriente.cantidad);

@@ -1,11 +1,22 @@
+import { Cliente } from "./Clente.js";
+
 export class CuentaCorriente {
-  cliente;
+  #cliente;
   nroCuenta;
   agencia;
   #saldoCuenta;
 
+  set Cliente(valor) {
+    if (valor instanceof Cliente) {
+      this.#cliente = valor;
+    }
+  }
+  get Cliente() {
+    return this.#cliente;
+  }
+
   constructor() {
-    this.cliente = null;
+    this.#cliente = null;
     this.nroCuenta = "";
     this.agencia = "";
     this.#saldoCuenta = 0;
